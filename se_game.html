@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .btn-group .button{
+    background-color: white; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+      cursor: pointer;
+     border: 2px solid #e7e7e7;
+    
+      }
+
+      .btn-group1 .button{
+       background-color: white; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    cursor: pointer;
+     border: 2px solid #e7e7e7;
+      
+      }
+      .btn-group2 .button{
+      background-color: white; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    cursor: pointer;
+     border: 2px solid #e7e7e7;
+      
+      }
+      
+      .btn-group .button:hover{
+      background-color: #3e8e41;
+      }
+      .btn-group1 .button:hover{
+      background-color: #3e8e41;
+      }
+      .btn-group2 .button:hover{
+      background-color: #3e8e41;
+      }
+    </style>
+  </head>
+ <body>
+   <script>
+     var x1=0;
+   var fruits=["c","a","t","h","i","f","l","a","g","b","o","l","m","a","p","s","t","u","d","y"];
+
+function myfunction(){
+
+      var temp=fruits[0];
+      for(var i=0;i<fruits.length-1;i++){
+		      fruits[i]=fruits[i+1];
+		      }
+		      fruits[i]=temp;
+		      document.getElementById("a1").value=fruits[0];
+		      document.getElementById("b1").value=fruits[1];
+		      document.getElementById("c1").value=fruits[2];
+		      document.getElementById("d1").value=fruits[3];
+		      document.getElementById("e1").value=fruits[4];
+		      document.getElementById("f1").value=fruits[5];
+		      document.getElementById("g1").value=fruits[6];
+		      document.getElementById("h1").value=fruits[7];
+		      document.getElementById("i1").value=fruits[8];
+		      document.getElementById("txt1").value="";
+		      document.getElementById("demo").innerHTML="";
+		      
+		     
+		      }
+
+		      function my1(){
+		      document.getElementById("txt1").value+=document.getElementById("a1").value;
+		      document.getElementById("a1").disabled = true;
+		      }
+		      function my2(){
+		      document.getElementById("txt1").value+=document.getElementById("b1").value ;
+		      document.getElementById("b1").disabled = true;
+		      }
+		      function my3(){
+		      document.getElementById("txt1").value+=document.getElementById("c1").value ;
+		      document.getElementById("c1").disabled = true;
+		      }
+		      function my4(){
+		      document.getElementById("txt1").value+=document.getElementById("d1").value ;
+		      document.getElementById("d1").disabled = true;
+		      }
+		      function my5(){
+		      document.getElementById("txt1").value+=document.getElementById("e1").value ;
+		      document.getElementById("e1").disabled = true;
+		      }
+		      function my6(){
+		      document.getElementById("txt1").value+=document.getElementById("f1").value ;
+		      document.getElementById("f1").disabled = true;
+		      }
+		      function my7(){
+		      document.getElementById("txt1").value+=document.getElementById("g1").value ;
+		      document.getElementById("g1").disabled = true;
+		      
+		      }
+		      function my8(){
+		      document.getElementById("txt1").value+=document.getElementById("h1").value ;
+		      document.getElementById("h1").disabled = true;
+		      }
+		      function my9(){
+		      document.getElementById("txt1").value+=document.getElementById("i1").value ;
+		      document.getElementById("i1").disabled = true;
+		      }
+		      function printText()
+		      {
+		      document.getElementById("a1").disabled= false;
+		      document.getElementById("b1").disabled= false;
+		      document.getElementById("c1").disabled= false;
+		      document.getElementById("d1").disabled= false;
+		      document.getElementById("e1").disabled= false;
+		      document.getElementById("f1").disabled= false;
+		      document.getElementById("g1").disabled= false;
+		      document.getElementById("h1").disabled= false;
+		      document.getElementById("i1").disabled= false;
+
+		   
+		      var rawFile = new XMLHttpRequest();
+		      rawFile.open("GET", "dictionary.txt", true);
+		      rawFile.onreadystatechange = function() {
+		      if (rawFile.readyState === 4)
+		      {
+		      var allText = rawFile.responseText;
+		      var txt=document.getElementById("txt1").value;
+		      var txt1=allText.split("\n");
+		      for(i=0;i<txt1.length;i++)
+				  {
+				  if(txt1[i]==txt)
+
+				  {
+				  x1=x1+1;
+				  document.getElementById("demo").innerHTML="it is a valid word" + " " + "your score is" +" "+ x1;
+				  break;
+				  }
+				  }
+				  if(i==txt1.length)
+				  {
+				  x1=x1-1;
+				  document.getElementById("demo").innerHTML="it is invalid word" + " " + "your score is" + " " + x1;
+				  }
+		      
+		       document.getElementById("txt1").value="";
+		      
+                      }
+                                                                }
+				  rawFile.send();
+
+
+ 		      
+		      }
+
+
+
+
+		      
+</script>  
+
+<input type="text" id="txt1" style="height:50px;width:222px">
+<div>
+  <input type="button" id="submit1" style="height:50px;width:237px" value="submit" onclick="printText()">
+</div>
+<div>
+  <input type="button" id="refresh1" style="height:50px;width:237px" value="refresh" onclick="myfunction()">
+</div>
+
+<div class="btn-group">
+  <input type="button" class="button" id="a1" style="height:50px;width:75px" value="c" onclick=my1()>
+  <input type="button" class="button" id="b1" style="height:50px;width:75px" value="a" onclick=my2()>
+  <input type="button" class="button" id="c1" style="height:50px;width:75px" value="t" onclick=my3()>
+</div>
+<div class="btn-group1">
+  <input type="button" class="button" id="d1" style="height:50px;width:75px" value="h" onclick=my4()>
+  <input type="button" class="button" id="e1" style="height:50px;width:75px" value="i" onclick=my5()>
+  <input type="button" class="button" id="f1" style="height:50px;width:75px" value="f" onclick=my6()>
+</div>
+<div class="btn-group2">
+  <input type="button" class="button" id="g1" style="height:50px;width:75px" value="l" onclick=my7()>
+  <input type="button" class="button" id="h1" style="height:50px;width:75px" value="a" onclick=my8()>
+  <input type="button" class="button" id="i1" style="height:50px;width:75px" value="g" onclick=my9()>
+</div>
+
+<p id="demo"></p>
+
+</body>
+</html>
